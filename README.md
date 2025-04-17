@@ -40,14 +40,14 @@ The Security Operations Center (SOC) detected an alert from the Intrusion Detect
 - This form of NTLM authentication is commonly abused during lateral movement, especially using tools like PsExec.
 
 
-  ![alt text](https://github.com/K-ING-TECH/Incident-Report_Lateral-Movement_via-PsExec/blob/main/FilterbyEndpoint.png)
+![Filter by Endpoint](images/FilterbyEndpoint.png)
 
 **2. Host Enumeration and Network Share Access**
 - The attacker connected to the IPC$ and ADMIN$ shares on 10.0.0.133.
 - These are administrative shares used for inter-process communication and file transfer during remote execution.
 
   
-![alt text](https://github.com/K-ING-TECH/Incident-Report_Lateral-Movement_via-PsExec/blob/main/Question1_Resolution.png)
+![Question 1 Resolution](images/Question1_Resolution.png)
 
 
 **3. Remote Payload Deployment**
@@ -63,14 +63,14 @@ Write Request File: PSEXESVC.exe
 
 **4. System Identification via NTLM Challenge**
 - During NTLMSSP_CHALLENGE responses, the following system hostnames were leaked:
-![alt text](https://github.com/K-ING-TECH/Incident-Report_Lateral-Movement_via-PsExec/blob/main/Question2-3_Resolution.png)
+![Question 2 to 3 Resolution](images/Question2-3_Resolution.png)
 
 #### Target IP	Hostnames:
 - 10.0.0.133	SALES-PC
 - 10.0.0.131	MARKETING-PC
 This confirmed that the attacker moved laterally from SALES-PC to MARKETING-PC.
 
-![alt text](https://github.com/K-ING-TECH/Incident-Report_Lateral-Movement_via-PsExec/blob/main/Question7_Resolution.png)
+![Question 7 Resolution](images/Question7_Resolution.png)
 
 **5. Second Pivot Attempt**
 - The attacker continued from `10.0.0.130` to `10.0.0.131` (MARKETING-PC).
